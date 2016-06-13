@@ -1,0 +1,33 @@
+<section class="card login"> 
+	<form name="myForm" ng-submit="login()" novalidate>
+		
+		<div class="textintro">
+			<h1>Hi There</h1>
+			<p>Login to access!</p>
+			<p class="message" ng-show="message">{{ message }}</p>
+		</div><!-- ./ textintro -->
+
+		<fieldset>
+			<!-- email -->
+			<input type="email" name="email" placeholder="Email" 
+				autofocus 
+				ng-model="user.email" 
+				ng-required="true">
+			<p class="error validationerror" 
+			ng-show="myForm.email.$invalid && myForm.email.$touched">Must be a valid email</p>
+
+			<!-- password -->
+			<input type="password" name="password" placeholder="Password" 
+			ng-model="user.password" 
+			ng-required="true">
+			<p class="error validationerror" 
+			ng-show="myForm.password.$invalid && myForm.email.$touched">Enter a password</p>
+		</fieldset><!-- ./ fieldset -->
+
+		<button class="btn" type="submit" ng-disabled="myForm.$invalid">Login</button>
+		<p>Or <a ng-href="#/register">register</a></p>
+	</form><!-- ./ form -->
+</section><!-- ./ login -->
+
+<!-- connection to database -->
+<!-- https://angregistration2016.firebaseIO.com -->

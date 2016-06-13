@@ -1,0 +1,44 @@
+<section class="card register">
+	<form name="myForm" ng-submit="register()" novalidate>
+		
+		<div class="textintro">
+			<h1>Register</h1>
+			<p>To access site features</p>
+			<p class="message" ng-show="message">{{ message }}</p>
+		</div><!-- ./ textintro -->
+
+		<fieldset>
+			<!-- name -->
+			<input type="firstname" name="firstname" placeholder="First Name"
+				ng-model="user.firstname"
+				ng-required="true"
+				autofocus>
+			<p class="error validationerror" 
+			ng-show="myForm.firstname.$invalid && myForm.firstname.$touched">Enter a Name</p>
+
+			<!-- lastname -->
+			<input type="lastname" name="lastname" placeholder="Last Name"
+				ng-model="user.lastname"
+				ng-required="true">
+			<p class="error validationerror" 
+			ng-show="myForm.lastname.$invalid && myForm.lastname.$touched">Enter a Last Name</p>
+
+			<!-- email -->
+			<input type="email" name="email" placeholder="Email"
+				ng-model="user.email"
+				ng-required="true">
+			<p class="error validationerror" 
+			ng-show="myForm.email.$invalid && myForm.email.$touched">Must be a valid email</p>
+
+			<!-- password -->
+			<input type="password" name="password" placeholder="Password"
+				ng-model="user.password"
+				ng-required="true">
+			<p class="error validationerror" 
+			ng-show="myForm.email.$invalid && myForm.password.$touched">Enter a Password</p>
+		</fieldset><!-- ./ fieldset -->
+
+		<button class="btn" type="submit" ng-disabled="myForm.$invalid">Register</button>
+		<p>Or <a ng-href="#login">Login</a></p>
+	</form><!-- ./ form -->
+</section><!-- ./ register -->

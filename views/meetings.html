@@ -1,0 +1,25 @@
+<div class="card meetings cf">
+	
+	<div class="textintro">
+		<h1>Meeting Area</h1>
+		<p>Type a meeting name and hit <strong>+</strong></p>
+	</div><!-- ./ textintro -->
+
+	<form action="" class="formgroup addmeeting cf"
+		name="myform"
+		ng-submit="addMeeting()"
+		novalidate>
+
+		<div class="inputwrapper">
+			<input type="text" name="meetingname" 
+				placeholder="Meeting name" 
+				ng-model="meetingname" 
+				ng-required="true"/>
+		</div><!-- inputwrapper -->
+
+		<button type="submit" class="btn"
+		ng-disabled="myform.$invalid">+</button>
+		
+	</form><!-- /. addmeeting -->
+
+</div><!-- ./ meettings cf -->

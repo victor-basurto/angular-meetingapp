@@ -37,7 +37,7 @@ myApp.factory('AuthenticationService', [
 					email: user.email,
 					password: user.password
 				}).then( function( regUser ) {	// if success, path to success
-					$location.path( '/success' );
+					$location.path( '/meetings' );
 				}).catch( function( err ) {
 					$rootScope.message = err.message;
 				});

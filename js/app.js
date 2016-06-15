@@ -1,7 +1,7 @@
 'use strict';
 var myApp = angular.module( 'myApp', 
 	[ 'ngRoute', 'firebase' ] )
-	.constant('FIREBASE_URL', 'https://angregistration2016.firebaseIO.com/');	// connection to database
+	.constant('FIREBASE_URL', 'https://ng-meeting-app.firebaseio.com/');	// connection to database
 
 /**
  * Resolve for non-auth users
@@ -28,9 +28,9 @@ myApp.config( ['$routeProvider', function( $routeProvider ) {
 			templateUrl: './views/register.html',	// get register.html
 			controller: 'RegistrationController'	// use RegistrationController
 		})
-		.when('/success', {
-			templateUrl: './views/success.html',	// get success.html
-			controller: 'SuccessController',			// use SuccessController
+		.when('/meetings', {
+			templateUrl: './views/meetings.html',	// get success.html
+			controller: 'MeetingsController',			// use SuccessController
 			resolve: {
 				currentAuth: function( AuthenticationService ) { // only access if user is logged in
 					return AuthenticationService.requireAuth();

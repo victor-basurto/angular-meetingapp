@@ -31,6 +31,11 @@ myApp.controller( 'MeetingsController', [
 						$scope.meetingname = '';
 					});
 				}
+
+				// delete a meeting
+				$scope.deleteMeeting = function( key ) {
+					meetingsInfo.$remove( key );
+				}
 			}
 		});
 }]);

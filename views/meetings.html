@@ -24,7 +24,7 @@
 
 	<h2>Your Meetings</h2>
 	<div class="meeting" ng-repeat="meeting in meetings">
-		<button class="btn btn-delete tooltip" ng-click="deleteMeeting(key)">
+		<button class="btn btn-delete tooltip" ng-click="deleteMeeting(meeting)">
 			<span>Delete This Meeting</span>
 		</button>
 		<span class="text">{{meeting.name}}</span>

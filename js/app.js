@@ -20,15 +20,19 @@ myApp.run([ '$rootScope', '$location', function( $rootScope, $location ) {
  */
 myApp.config( ['$routeProvider', function( $routeProvider ) {
 	$routeProvider
-		.when('/login', {
+		.when( '/login', {
 			templateUrl: './views/login.html',		// get login.html
 			controller: 'RegistrationController'	// use RegistrationController
 		})
-		.when('/register', {
+		.when( '/register', {
 			templateUrl: './views/register.html',	// get register.html
 			controller: 'RegistrationController'	// use RegistrationController
 		})
-		.when('/meetings', {
+		.when( '/checkins/:uId/:mId', {
+			templateUrl: './views/checkins.html',
+			controller: 'CheckinsController'
+		})
+		.when( '/meetings', {
 			templateUrl: './views/meetings.html',	// get success.html
 			controller: 'MeetingsController',			// use SuccessController
 			resolve: {

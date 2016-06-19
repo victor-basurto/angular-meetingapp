@@ -1,0 +1,38 @@
+<section class="card checkins">
+	<form name="myForm" ng-submit="addCheckin()" novalidate>
+		
+		<div class="textintro">
+			<h1>Check-in</h1>
+			<p>Fill out this form to register a check-in</p>
+			<p><a ng-href="#/meetings">back to meetings</a></p>
+
+			<p class="error formerror" ng-show="message">{{ message }}</p>
+		</div><!-- ./ textintro -->
+
+		<fieldset>
+			<!-- name -->
+			<input type="firstname" name="firstname" placeholder="First Name"
+				ng-model="user.firstname"
+				ng-required="true"
+				autofocus>
+			<p class="error validationerror" 
+			ng-show="myForm.firstname.$invalid && myForm.firstname.$touched">Enter a Name</p>
+
+			<!-- lastname -->
+			<input type="lastname" name="lastname" placeholder="Last Name"
+				ng-model="user.lastname"
+				ng-required="true">
+			<p class="error validationerror" 
+			ng-show="myForm.lastname.$invalid && myForm.lastname.$touched">Enter a Last Name</p>
+
+			<!-- email -->
+			<input type="email" name="email" placeholder="Email"
+				ng-model="user.email"
+				ng-required="true">
+			<p class="error validationerror" 
+			ng-show="myForm.email.$invalid && myForm.email.$touched">Must be a valid email</p>
+		</fieldset><!-- ./ fieldset -->
+
+		<button class="btn" type="submit" ng-disabled="myForm.$invalid">Check-in</button>
+	</form><!-- ./ form -->
+</section><!-- ./ register -->

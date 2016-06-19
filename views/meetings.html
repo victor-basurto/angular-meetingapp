@@ -27,6 +27,12 @@
 		<button class="btn btn-delete tooltip" ng-click="deleteMeeting(meeting)">
 			<span>Delete This Meeting</span>
 		</button>
+
+		<a ng-href="#/checkins/{{ currentUser.regUser }}/{{ meeting.$id }}" 
+			class="btn btn-checkin tooltip">
+			<span>Go to Check-in URL</span>		
+		</a>
+
 		<span class="text">{{meeting.name}}</span>
 	</div>
 

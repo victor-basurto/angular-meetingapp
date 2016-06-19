@@ -22,6 +22,16 @@ myApp.controller( 'MeetingsController', [
 				// list of meetings into the meetings model
 				$scope.meetings = meetingsInfo;
 
+				// show how many meetings are available to the user
+				meetingsInfo.$loaded().then( function( data ) {
+					$rootScope.howManyMeetings = meetingsInfo.length;
+				});
+
+				// watch for changes in meetings Badge
+				meetingsInfo.$watch( function( data ) {
+					$rootScope.howManyMeetings = meetingsInfo.length;
+				});
+
 				// add new meeting
 				$scope.addMeeting = function() {
 					meetingsInfo.$add({

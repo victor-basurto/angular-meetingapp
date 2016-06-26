@@ -20,6 +20,10 @@ myApp.controller( 'CheckinsController', [
 		var checkinsList = $firebaseArray( ref );
 		$scope.checkins = checkinsList;
 
+		$scope.order = 'firstname';
+		$scope.direction = null;
+		$scope.query = '';
+
 		// add object
 		$scope.addCheckin = function() {
 			var checkinsInfo = $firebaseArray( ref );
@@ -38,6 +42,19 @@ myApp.controller( 'CheckinsController', [
 				$location.path( '/checkins/' + $scope.whichuser + '/' 
 							+ $scope.whichmeeting + '/checkinsList' );
 			});
+		}
+
+		$scope.deleteCheckin = function( id ) {
+			var refDel = new Firebase( FIREBASE_URL + 'user/' + $scope.whichuser + '/meetings/' + 
+										$scope.whichmeeting + '/checkins/' + id );
+			var record = $firebaseObject( refDel );
+
+			var answer = confirm('are you sure you want to delete: ' + id );
+			if ( angular.equals( answer, false ) ) {
+				return;
+			} else {
+				record.$remove( id );
+			}
 		}
 
 }]);

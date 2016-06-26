@@ -32,6 +32,10 @@ myApp.config( ['$routeProvider', function( $routeProvider ) {
 			templateUrl: './views/checkins.html',
 			controller: 'CheckinsController'
 		})
+		.when( '/checkins/:uId/:mId/checkinsList', {
+			templateUrl: './views/chekins-list.html',
+			controller: 'CheckinsController'
+		})
 		.when( '/meetings', {
 			templateUrl: './views/meetings.html',	// get success.html
 			controller: 'MeetingsController',			// use SuccessController

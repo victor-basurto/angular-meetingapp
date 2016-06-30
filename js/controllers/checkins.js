@@ -44,17 +44,25 @@ myApp.controller( 'CheckinsController', [
 			});
 		}
 
+		/**
+		 * @param {object} [id which will be the parent hash ID]
+		 * this method allows users to delete checkins
+		 */
 		$scope.deleteCheckin = function( id ) {
 			var refDel = new Firebase( FIREBASE_URL + 'user/' + $scope.whichuser + '/meetings/' + 
 										$scope.whichmeeting + '/checkins/' + id );
 			var record = $firebaseObject( refDel );
 
-			var answer = confirm('are you sure you want to delete: ' + id );
-			if ( angular.equals( answer, false ) ) {
-				return;
-			} else {
-				record.$remove( id );
-			}
+			// ask user if wants to delete a record
+			record.$loaded().then( function() {
+				var answer;
+				answer = confirm('are you sure you want to delete: ' + record.firstname + ' ' + record.lastname);
+				if ( angular.equals( answer, false ) ) {
+					return;
+				} else {
+					record.$remove( id );
+				}
+			});
 		}
 
 }]);

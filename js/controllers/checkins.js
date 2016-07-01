@@ -23,6 +23,7 @@ myApp.controller( 'CheckinsController', [
 		$scope.order = 'firstname';
 		$scope.direction = null;
 		$scope.query = '';
+		$scope.recordId = '';
 
 		// add object
 		$scope.addCheckin = function() {
@@ -63,6 +64,12 @@ myApp.controller( 'CheckinsController', [
 					record.$remove( id );
 				}
 			});
+		}
+
+		// show only one random record to the user
+		$scope.pickRandom = function() {
+			var whichRecord = Math.round( Math.random() * ( checkinsList.length - 1 ) );
+			$scope.recordId = checkinsList.$keyAt( whichRecord );
 		}
 
 }]);

@@ -72,4 +72,14 @@ myApp.controller( 'CheckinsController', [
 			$scope.recordId = checkinsList.$keyAt( whichRecord );
 		}
 
+		$scope.showLove = function( myCheckin ) {
+			myCheckin.show = !myCheckin.show;
+
+			if ( myCheckin.userState == 'expanded' ) {
+				myCheckin.userState = '';
+			} else {
+				myCheckin.userState = 'expanded';
+			}
+		}
+
 }]);

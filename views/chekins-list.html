@@ -58,9 +58,15 @@
 
 					<ul class="awardslist cf">
 						<li class="cf" ng-repeat="(key, award) in checkin.awards">
-							<div class="award">{{ award.name }}</div>
-						</li>
-					</ul>
+							<div class="award">{{ award.name }}</div><!-- ./ award -->
+							<div class="buttons" ng-show="currentUser">
+								<button class="btn btn-delete award tooltip" 
+										ng-click="deleteLove(checkin.$id, key)">
+									<span>Delete this award</span>
+								</button><!-- ./ btn-delete -->
+							</div><!-- ./ buttons -->
+						</li><!-- ./ li ng-repeat -->
+					</ul><!-- ./ awardslist -->
 				</div><!-- ./ showchekins -->
 			</div><!-- ./ checkin -->
 		</li><!-- ./ ng-repeat -->

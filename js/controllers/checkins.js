@@ -108,4 +108,18 @@ myApp.controller( 'CheckinsController', [
 			});
 		}
 
+		$scope.deleteLove = function( checkinId, award ) {
+			var refLove = new Firebase( FIREBASE_URL + 'user/' + $scope.whichuser + '/meetings/' + 
+							$scope.whichmeeting + '/checkins/' + checkinId + '/awards' );
+
+			var record = $firebaseObject( refLove );
+
+
+			record.$remove( award ).then( function() {
+				console.log( 'You removed: ', award );
+			}, function( err ) {
+				console.log( 'Error: ', err );
+			})
+		}
+
 }]);

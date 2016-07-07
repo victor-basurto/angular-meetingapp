@@ -72,6 +72,10 @@ myApp.controller( 'CheckinsController', [
 			$scope.recordId = checkinsList.$keyAt( whichRecord );
 		}
 
+		/**
+		 * @param {object} myCheckin [css class that determines the state of the element if user clicks on it
+		 						automatically changes the class to `expanded`]
+		 */
 		$scope.showLove = function( myCheckin ) {
 			myCheckin.show = !myCheckin.show;
 
@@ -80,6 +84,28 @@ myApp.controller( 'CheckinsController', [
 			} else {
 				myCheckin.userState = 'expanded';
 			}
+		}
+
+		/**
+		 * @param {object} myCheckin [reference of the url params where the checkins/id belongs to]
+		 * @param {object} myGift [description of what user commented]
+		 * @return {promise} checkinsArray [data passed to firebase with already defined path]
+		 */
+		$scope.giveLove = function( myCheckin, myGift ) {
+			var refLove = new Firebase( FIREBASE_URL + 'user/' + $scope.whichuser + '/meetings/' + 
+							$scope.whichmeeting + '/checkins/' + myCheckin.$id + '/awards' );
+
+			var checkinsArray = $firebaseArray( refLove );
+
+			var myData = {
+				name: myGift,
+				date: Firebase.ServerValue.TIMESTAMP
+			}
+
+			// add `myData` to firebase
+			checkinsArray.$add( myData ).then( function() {
+				console.log( 'data added to firebase' );
+			});
 		}
 
 }]);

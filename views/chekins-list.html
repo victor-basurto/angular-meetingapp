@@ -55,6 +55,12 @@
 							/><!-- ./ input - giftText -->
 						<button class="btn" type="submit" ng-disabled="myform.$invalid">+</button>
 					</form><!-- ./ form -->
+
+					<ul class="awardslist cf">
+						<li class="cf" ng-repeat="(key, award) in checkin.awards">
+							<div class="award">{{ award.name }}</div>
+						</li>
+					</ul>
 				</div><!-- ./ showchekins -->
 			</div><!-- ./ checkin -->
 		</li><!-- ./ ng-repeat -->
